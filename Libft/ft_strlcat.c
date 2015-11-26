@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 17:26:30 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 14:47:42 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/11/26 18:44:10 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
 	int	i;
-	int j;
-	
+	int	j;
+
 	i = 0;
 	while (dst[i] != '\0')
 		i++;
@@ -32,7 +32,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 	return (sizeof(dst));
 }
 
-int		main(void)
+/*int		main(void)
 {
 	char s1[] = "First line ";
 	char s2[] = "Second line";
@@ -40,4 +40,4 @@ int		main(void)
 	printf("strlcat vaut '%lu'\n\n", strlcat(s1, s2, sizeof(s1)));
 	printf("ft_strlcat vaut '%lu'\n", ft_strlcat(s1, s2, sizeof(s1)));
 	return (0);
-}
+}*/

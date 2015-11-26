@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 17:15:16 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/24 18:03:59 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/11/26 18:28:39 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 	while (s2[j] != '\0' && i < n)
 		s1[i++] = s2[j++];
 	s1[i] = '\0';
-	return s1;
+	return (s1);
 }

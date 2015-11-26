@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:21:24 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 15:31:38 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/11/26 18:37:49 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_atoi(const char *str)
 	result = str[i] - '0';
 	while (str[i] != '\0')
 	{
-		if(ft_isdigit(str[i]))
+		if (ft_isdigit(str[i]))
 		{
 			result *= 10;
 			num = str[i] - '0';
@@ -33,4 +33,4 @@ int		ft_atoi(const char *str)
 		i++;
 	}
 	return (result);
-}                       
+}

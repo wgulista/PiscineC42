@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 14:47:56 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 15:32:10 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/11/26 18:38:57 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strstr(const char *s1, const char *s2)
 	return (0);	
 }
 
-int		main(void)
+/*int		main(void)
 {
 	const char haystack[20] = "wgul@student.fr";
 	const char needle[10] = "@";
@@ -47,4 +47,4 @@ int		main(void)
 	printf("ft_strstr vaut %s", res2);
 
 	return (0);
-}
+}*/

@@ -1,32 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 18:21:27 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 18:32:08 by wgulista         ###   ########.fr       */
+/*   Created: 2015/11/26 18:01:51 by wgulista          #+#    #+#             */
+/*   Updated: 2015/11/26 18:58:23 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-int		ft_strcmp(const char *s1, const char *s2)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int i;
-	int value;
+	size_t		i;
+	char		*str1;
+	char		*str2;
 
 	i = 0;
-	while (s1[i])
+	str1 = (char *)s1;
+	str2 = (char *)s2;
+	while (str1[i] != '\0' && i < n)
 	{
-		if (s1[i] != s2[i])
+		if (str1[i] != str2[i])
 		{
-			value = 1;
+			return (1);
 			break ;
 		}
-		value = 0;
 		i++;
 	}
-	return (value);
+	return (str1[i] - str2[i]);
+}
+
+int		main(void)
+{
+	char	str1[15];
+	char	str2[15];
+	int		ret;
+
+	memcpy(str1, "abcdef", 6);
+	memcpy(str2, "ABCDEF", 6);
+	ret = ft_memcmp(str1, str2, 6);
+	printf("%i", ret);
+	return (0);
 }

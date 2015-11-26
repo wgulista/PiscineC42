@@ -6,27 +6,28 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 16:21:26 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 16:31:10 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/11/26 17:49:00 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 void	*ft_memcpy(void *s1, const void *s2, size_t n)
 {
-	int		i;
-	char
-}
+	size_t		i;
+	char		*dest;
+	char		*src;
 
-int		main(void)
-{
-	const char src[50] = "This is a line";
-	char dest[50];
-
-	printf("Copie avant memcpy : %s\n", dest);
-	memcpy(dest, src, strlen(src) + 1);
-  	printf("Copie apres memcpy : %s\n", dest);	
-	return(0);
+	i = 0;
+	dest = (char *)s1;
+	src = (char *)s2;
+	if (src == NULL || dest == NULL)
+		return (NULL);
+	while (src[i] != '\0')
+	{
+		if (i < n)
+			dest[i] = src[i];
+		i++;
+	}
+	return (s1);
 }
