@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 16:23:36 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 15:33:20 by wgulista         ###   ########.fr       */
+/*   Created: 2015/11/26 16:21:26 by wgulista          #+#    #+#             */
+/*   Updated: 2015/11/26 16:31:10 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-int		ft_isprint(int c)
+void	*ft_memcpy(void *s1, const void *s2, size_t n)
 {
-	if(c >= 32 && c <= 126)
-		return (1);
-	return (0);
+	int		i;
+	char
+}
+
+int		main(void)
+{
+	const char src[50] = "This is a line";
+	char dest[50];
+
+	printf("Copie avant memcpy : %s\n", dest);
+	memcpy(dest, src, strlen(src) + 1);
+  	printf("Copie apres memcpy : %s\n", dest);	
+	return(0);
 }

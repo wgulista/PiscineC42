@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:21:59 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 13:22:01 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/11/26 15:32:52 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int		ft_isalnum(int c)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && 122)
-		|| (c >= 48 && c <= 57))
+	if (ft_isalpha(c) || ft_isdigit(c))
 		return (1);
 	return (0);
 }

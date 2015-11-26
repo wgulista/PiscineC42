@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 17:26:30 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 14:47:42 by wgulista         ###   ########.fr       */
+/*   Created: 2015/11/26 14:47:56 by wgulista          #+#    #+#             */
+/*   Updated: 2015/11/26 15:32:10 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,37 @@
 #include <stdio.h>
 #include <string.h>
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	int	i;
-	int j;
-	
+	int		i;
+	int		j;
+
 	i = 0;
-	while (dst[i] != '\0')
-		i++;
+	if(s1 == NULL || !s1 || !s2)
+		return (NULL);
 	j = 0;
-	while (size)
+	while (s1[i] != '\0')
 	{
-		dst[i++] = src[j++];
-		size--;
+		if (s1[i] == s2[i])
+		{
+			retu
+		i++;
 	}
-	dst[i] = '\0';
-	return (sizeof(dst));
+	return (0);	
 }
 
 int		main(void)
 {
-	char s1[] = "First line ";
-	char s2[] = "Second line";
+	const char haystack[20] = "wgul@student.fr";
+	const char needle[10] = "@";
+	char *res1;
+	char *res2;
 
-	printf("strlcat vaut '%lu'\n\n", strlcat(s1, s2, sizeof(s1)));
-	printf("ft_strlcat vaut '%lu'\n", ft_strlcat(s1, s2, sizeof(s1)));
+	res1 = strstr(haystack, needle);
+	printf("strstr vaut %s\n\n", res1);
+
+	res2 = ft_strstr(haystack, needle);
+	printf("ft_strstr vaut %s", res2);
+
 	return (0);
 }
