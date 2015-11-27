@@ -12,32 +12,35 @@
 
 #include "libft.h"
 #include <stdio.h>
-#include <string.h>
 
 size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
+	unsigned int	j;
 
-	i = 0;
+	i = ft_strlen(dst);
+	size -= i + 1;
+	j = ft_strlen((char *)src);
 	while (dst[i] != '\0')
-		i++;
-	j = 0;
-	while (size)
 	{
-		dst[i++] = src[j++];
-		size--;
+		if ((i + j) > size)
+			return (0);
+		else
+		{
+			ft_memcpy(dst + i, src, j);
+			dst[i] = '\0'; 
+			return (i+j);
+		}
+		i++;
 	}
-	dst[i] = '\0';
-	return (sizeof(dst));
+	return (size);
 }
 
-/*int		main(void)
+int		main(void)
 {
-	char s1[] = "First line ";
-	char s2[] = "Second line";
+	const char somestring[] = "bar";
+	char buf[5] = "foo";
 
-	printf("strlcat vaut '%lu'\n\n", strlcat(s1, s2, sizeof(s1)));
-	printf("ft_strlcat vaut '%lu'\n", ft_strlcat(s1, s2, sizeof(s1)));
+	printf("ft_strlcat = %u", ft_strlcat(buf, somestring, sizeof(buf)));
 	return (0);
-}*/
+}
