@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -26,24 +24,8 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (str1[i] != '\0' && i < n)
 	{
 		if (str1[i] != str2[i])
-		{
-			return (1);
-			break ;
-		}
+			return ((int)(str1[i] - str2[i]));
 		i++;
 	}
-	return (str1[i] - str2[i]);
-}
-
-int		main(void)
-{
-	char	str1[15];
-	char	str2[15];
-	int		ret;
-
-	memcpy(str1, "abcdef", 6);
-	memcpy(str2, "ABCDEF", 6);
-	ret = ft_memcmp(str1, str2, 6);
-	printf("%i", ret);
 	return (0);
 }
