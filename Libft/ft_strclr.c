@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 19:08:39 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/28 20:41:35 by wgulista         ###   ########.fr       */
+/*   Created: 2015/11/30 17:27:19 by wgulista          #+#    #+#             */
+/*   Updated: 2015/11/30 17:28:47 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *s1, const void *s2, size_t n)
+void	ft_strclr(char *s)
 {
-	unsigned char	res[n];
+	sise_t i;
 
-	ft_memcpy(res, s2, n);
-	ft_memcpy(s1, res, n);
-	return ((char *)s1);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		s[i] = '\0';
+		i++;
+	}
+	s[i] = '\0';
 }

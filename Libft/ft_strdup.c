@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:34:02 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 14:06:14 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/11/30 17:25:13 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	char	*str;
 
-	str = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
+	str = (char *)malloc(sizeof(char) * ft_strlen(s1));
 	i = 0;
 	while (s1[i] != '\0')
 	{

@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 19:08:39 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/28 20:41:35 by wgulista         ###   ########.fr       */
+/*   Created: 2015/11/30 17:48:23 by wgulista          #+#    #+#             */
+/*   Updated: 2015/11/30 17:50:12 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *s1, const void *s2, size_t n)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	unsigned char	res[n];
-
-	ft_memcpy(res, s2, n);
-	ft_memcpy(s1, res, n);
-	return ((char *)s1);
+	if (ft_strncmp(s1, s2, n) == 0)
+		return (1);
+	return (0);
 }

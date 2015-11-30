@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 17:26:30 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 18:44:10 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/11/28 20:43:28 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,10 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 		else
 		{
 			ft_memcpy(dst + i, src, j);
-			dst[i] = '\0'; 
-			return (i+j);
+			dst[i] = '\0';
+			return (i + j);
 		}
 		i++;
 	}
 	return (size);
-}
-
-int		main(void)
-{
-	const char somestring[] = "bar";
-	char buf[5] = "foo";
-
-	printf("ft_strlcat = %u", ft_strlcat(buf, somestring, sizeof(buf)));
-	return (0);
 }

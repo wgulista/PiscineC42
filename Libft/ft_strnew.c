@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 19:08:39 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/28 20:41:35 by wgulista         ###   ########.fr       */
+/*   Created: 2015/11/30 16:35:21 by wgulista          #+#    #+#             */
+/*   Updated: 2015/11/30 16:38:22 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *s1, const void *s2, size_t n)
+char	*ft_strnew(size_t size)
 {
-	unsigned char	res[n];
+	size_t	i;
+	char	*str;
 
-	ft_memcpy(res, s2, n);
-	ft_memcpy(s1, res, n);
-	return ((char *)s1);
+	i = 0;
+	str = (char *)malloc(sizeof(char) * size);
+	while (i < size)
+	{
+		str[i] = '\0';
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
