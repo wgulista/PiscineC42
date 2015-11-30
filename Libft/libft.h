@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:24:21 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 14:05:08 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/11/30 18:04:42 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct		s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
