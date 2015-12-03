@@ -6,14 +6,15 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 13:27:36 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/02 15:43:21 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/03 18:19:43 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
-char	*ft_strtrimchar(char *s, char c)
+char	*ft_strtrimchar(const char *s, char c)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -26,8 +27,7 @@ char	*ft_strtrimchar(char *s, char c)
 		i++;
 	while (s[j - 1] == c)
 		j--;
-	str = (char *)malloc(sizeof(char) * (j - i + 1));
-	if (str == NULL)
+	if ((str = (char *)malloc(sizeof(char) * (j - i + 1))) == NULL)
 		return (NULL);
 	k = 0;
 	while (k < j)
@@ -63,47 +63,53 @@ int		ft_count_word(const char *s, char c)
 	return ((int)count);
 }
 
+char	*ft_strndup(const char *str, char c, int len)
+{
+	unsigned int	i;
+	char			*new;
+
+	i = 0;
+	if ((new = (char *)malloc(sizeof(char) * len)) == NULL)
+		return (NULL);
+	while (str[i] != '\0' && str[i] != c && (int)i < len)
+	{
+		new[i] = str[i];
+		i++;
+	}
+	if (str[i] != 0 && str[i] == c)
+		new = (char *)&str[i];
+	return (new);
+}
+
 char	**ft_strsplit(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
-	size_t	next;
 	int		nbrword;
 	char	**new;
 
 	i = 0;
-	s = ft_strtrimchar((char *)s, c);
+	s = ft_strtrimchar(s, c);
 	nbrword = ft_count_word(s, c);
-	if ((new = (char **)malloc(sizeof(char *) * (nbrword + 1))) == NULL)
+	if (((new = (char **)malloc(sizeof(char *) * (nbrword + 1)))) == NULL)
 		return (NULL);
 	i = 0;
+	j = 0;
 	while ((int)i < nbrword)
 	{
-		j = 0;
-		while (s[j] != '\0')
-		{
-			if (s[i] == c)
-				next = 0;
-			else
-			{
-				if (next == 0)
-					new[i] = ft_strdup(s);
-				next = 1;
-			}
-			j++;
-		}
-		ft_strtrim(new[i]);
+		new[i] = ft_strndup(s, c, ft_strlen(new[i]));
+		printf("%s\n", new[i]);
 		i++;
 	}
 	return (new);
 }
 
-int		main(void)
+/*int		main(void)
 {
 	int		i;
-	char	**tableau;
+	char	**tableau = 0;
 
-	tableau = ft_strsplit("*salut **les**amis**Slaut", '*');
+	tableau = ft_strsplit("*salut**les***amis**", '*');
 	i = 0;
 	while (tableau[i])
 	{
@@ -111,4 +117,4 @@ int		main(void)
 		i++;
 	}
 	return (0);
-}
+}*/

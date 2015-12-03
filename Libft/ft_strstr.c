@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 14:47:56 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/28 20:35:59 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/03 17:30:25 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ char	*ft_strstr(const char *s1, const char *s2)
 	while (s1[i] != '\0')
 	{
 		j = i;
-		c = 0;
-		while (s1[j] == s2[c])
+		k = 0;
+		while (s1[j] == s2[k])
 			return ((char *)&s1[i]);
 		i++;
 	}

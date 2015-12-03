@@ -6,20 +6,20 @@
 /*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 16:40:08 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/30 16:50:34 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/03 17:22:21 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+void	ft_strdel(char **ap)
 {
 	size_t i;
 
 	i = 0;
-	while (as[i] != NULL)
+	while (ap[i] != NULL)
 	{
-		ft_memdel(as);
+		ft_memdel((void **)ap);
 		i++;
 	}
 }

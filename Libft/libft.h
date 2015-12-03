@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:24:21 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/30 18:04:42 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/03 18:18:56 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 # define INT_MAX 2147483648
-# define INT_MIN -2147483648 
+# define INT_MIN -2147483648
 
 typedef struct		s_list
 {
@@ -44,7 +44,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strcpy(char *s1, const char *s2);
 char	*ft_strncpy(char *s1, const char *s2, size_t n);
-void	ft_strdel(char **as);
+void	ft_strdel(char **ap);
 char	*ft_strdup(const char *s1);
 int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
@@ -59,6 +59,7 @@ char	*ft_strstr(const char *s1, const char *s2);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 char	*ft_strsub(const char *s, unsigned int start, size_t len);
 char	*ft_strtrim(const char *s);
+char	**ft_strsplit(char const *s, char c);
 
 void	*ft_memalloc(size_t size);
 void	*ft_memset(void *b, int c, size_t len);

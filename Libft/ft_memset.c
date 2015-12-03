@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 16:02:02 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 16:21:09 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/03 14:54:35 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	char		*str;
 
 	i = 0;
-	str = (char *)b;
-	if (str == NULL)
+	if ((str = (char *)b) == NULL)
 		return (NULL);
 	while (i < len)
 	{

@@ -6,22 +6,22 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 17:07:13 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 18:43:09 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/03 17:55:40 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, char *src, size_t n)
+char	*ft_strncpy(char *s1, const char *s2, size_t n)
 {
-	int		i;
+	size_t	i;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (s2[i] != '\0' && i < n)
 	{
-		dest[i] = src[i];
-		i++;
+		s1[i] = s2[i];
+		++i;
 	}
-	dest[i] = '\0';
-	return (dest);
+	s1[i] = '\0';
+	return (s1);
 }

@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 14:06:27 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 18:43:39 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/03 17:49:06 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t		ft_strlen(const char *s)
 	int	i;
 
 	i = 0;
-	while (s[i++])
-		;
-	return (i - 1);
+	while (s[i])
+		i++;
+	return (i);
 }
