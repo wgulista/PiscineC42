@@ -14,14 +14,14 @@
 
 void	ft_putnbr(int n)
 {
-	if (n == -2147483648)
+	if (n <= INT_MIN)
 	{
-		n = -2147483648;
+		n = INT_MIN;
 		ft_putstr("-2147483648");
 	}
-	if (n == 2147483647)
+	if (n >= INT_MAX)
 	{
-		n = 2147483647;
+		n = INT_MAX;
 		ft_putstr("2147483647");
 	}
 	if (n < 0)
@@ -35,10 +35,4 @@ void	ft_putnbr(int n)
 		ft_putnbr(n % 10);
 	}
 	ft_putchar(n + 48);
-}
-
-int		main(void)
-{
-	
-	return (0);
 }

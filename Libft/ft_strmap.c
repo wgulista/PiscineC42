@@ -18,7 +18,8 @@ char	*f_strmap(char const *s, char (*f)(char))
 	char	*new;
 
 	i = 0;
-	new = (char *)malloc(sizeof(char) * ft_strlen(s));
+	if (new = (char *)malloc(sizeof(char) * ft_strlen(s)) == NULL)
+		return (NULL);
 	while (s[i] != '\0')
 	{
 		new[i] = str[i];
