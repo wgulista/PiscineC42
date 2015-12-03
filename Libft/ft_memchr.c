@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 17:49:12 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/03 18:24:53 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/03 19:30:44 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	i = 0;
 	str = (char *)s;
-	if (s == NULL || str[i] == '\0')
-		return (NULL);
+	if (s == NULL || c == 0 || str[i] == '\0')
+		return (0);
 	else
 	{
-		while (str[i] && str[i] != (char)c && i < n)
+		while (str[i] != '\0' && str[i] != (char)c && i < n)
 			i++;
 		if (str[i] != 0 && str[i] == (char)c)
 			return ((char *)&str[i]);

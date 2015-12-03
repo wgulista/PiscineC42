@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:21:27 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/03 17:20:11 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/03 19:08:18 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int		ft_strcmp(const char *s1, const char *s2)
 	int value;
 
 	i = 0;
-	while (s1[i])
+	if (s1[i] == '\0' || s2[i] == '\0')
+		return (0);
+	while (s1[i] && s2[i])
 	{
 		if (s1[i] != s2[i])
 		{
@@ -28,7 +30,5 @@ int		ft_strcmp(const char *s1, const char *s2)
 		value = 0;
 		i++;
 	}
-	if (value < 0)
-		return (0);
 	return (value);
 }

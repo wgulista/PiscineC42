@@ -6,25 +6,14 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:24:21 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/03 18:18:56 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/03 18:41:57 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
 # include <stdlib.h>
 # include <unistd.h>
-
-# define INT_MAX 2147483648
-# define INT_MIN -2147483648
-
-typedef struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
