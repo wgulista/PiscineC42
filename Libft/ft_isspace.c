@@ -1,40 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 18:15:01 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/03 17:18:58 by wgulista         ###   ########.fr       */
+/*   Created: 2015/12/04 00:16:24 by wgulista          #+#    #+#             */
+/*   Updated: 2015/12/04 00:17:56 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int		ft_isspace(int c)
 {
-	if (n <= -2147483648)
-	{
-		n = -2147483648;
-		ft_putstr("-2147483648");
-		return ;
-	}
-	if (n >= 2147483647)
-	{
-		n = 2147483647;
-		ft_putstr("2147483647");
-		return ;
-	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n *= -1;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-	ft_putchar((char)(48 + n));
+	if (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f' 
+		|| c == '\v')
+		return (1);
+	else
+		return (c);
 }
