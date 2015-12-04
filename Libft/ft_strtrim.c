@@ -21,9 +21,9 @@ char	*ft_strtrim(char const *s)
 
 	i = 0;
 	j = ft_strlen(s);
-	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+	while (ft_isspace(str[i]))
 		i++;
-	while (s[j - 1] == ' ' || s[j - 1] == '\t' || s[j - 1] == '\n')
+	while (ft_isspace(str[j - 1]))
 		j--;
 	k = 0;
 	if ((new = (char *)malloc(sizeof(char) * (j - i + 1))) == NULL)
