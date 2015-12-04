@@ -23,7 +23,7 @@ int		ft_atoi(const char *str)
 	{
 		if (str[i] != '\0' && str[i] == '+' && ft_isdigit(str[i]))
 			result = result * 10 + str[i] - 48;
-		if (st[i] == '-' && result < 0)
+		if (str[i] == '-' && result < 0)
 			result *= -1;
 		i++;
 	}
