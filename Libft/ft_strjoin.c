@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*new;
 
 	i = 0;
+	if (!s1 || !s2)
+		return (NULL);
 	new = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)));
 	if (new == NULL)
 		return (NULL);
@@ -30,9 +32,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	while (s2[j] != '\0')
 	{
-		new[j] = s2[j];
+		new[i++] = s2[j];
 		j++;
 	}
-	new[j] = '\0';
+	new[i] = '\0';
 	return (new);
 }
