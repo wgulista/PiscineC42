@@ -22,8 +22,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 		return (NULL);
 	while (s[i] != '\0')
 	{
-		new[i] = s[i];
-		f(new[i]);
+		new[i] = f(s[i]);
 		i++;
 	}
 	new[i] = '\0';

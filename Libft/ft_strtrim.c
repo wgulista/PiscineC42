@@ -11,28 +11,24 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_strtrim(char const *s)
 {
 	size_t	i;
-	size_t	j;
-	size_t	k;
 	char	*new;
 
 	i = 0;
-	j = ft_strlen(s);
-	while (ft_isspace(s[i]))
-		i++;
-	while (ft_isspace(s[j - 1]))
-		j--;
-	k = 0;
-	if ((new = (char *)malloc(sizeof(char) * (j - i + 1))) == NULL)
+	if (s == NULL)
 		return (NULL);
-	while (k <= j)
-	{
-		new[k] = s[i + k];
-		k++;
-	}
-	new[k] = '\0';
-	return (new);
+	while (ft_isspace(s[i]))
+		s++;
+	while (s[i])
+		i++;
+	while (i-- > 0 && ft_isspace(s[i]))
+		;
+	new = ft_strsub(s, 0, i + 1);
+	if (new)
+		return (new);
+	return (NULL);
 }

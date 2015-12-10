@@ -12,20 +12,45 @@
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+static int    ft_issign(char c)
+{
+	return (c == '+' || c == '-');
+}
+
+char          *ft_test_sign(const char *s, int *i, int *ispositive)
+{
+  char *new;
+
+  new = (char *)s;
+  if (new[*i] == '+')
+    new++;
+  else if (new[*i] == '-')
+  {
+    *ispositive = -1;
+    *i = *i + 1;
+  }
+  return (new);
+}
+
+int           ft_atoi(const char *str)
 {
 	int	i;
-	int result;
+	int	result;
+	int	ispositive;
 
 	i = 0;
 	result = 0;
-	while (str[i] != '\0' && ft_isspace(str[i]) && ft_isalpha(str[i]))
+	ispositive = 1;
+	str = ft_strtrim(str);
+	while (str[i] != 0 && ft_isspace(str[i]) && ft_isalpha(str[i]))
+		i++;
+	if (!ft_isdigit(str[i]) && !ft_issign(str[i]))
+		return (0);
+	str = ft_test_sign(str, &i, &ispositive);
+	while (ft_isdigit(str[i]))
 	{
-		if (str[i] != '\0' && str[i] == '+' && ft_isdigit(str[i]))
-			result = result * 10 + str[i] - 48;
-		if (str[i] == '-' && result < 0)
-			result *= -1;
+		result = result * 10 + (str[i] - 48);
 		i++;
 	}
-	return (result);
+	return (result * (int)ispositive);
 }

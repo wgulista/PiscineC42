@@ -18,12 +18,9 @@ FLAGS = -Wall -Wextra -Werror
 
 SRC = $(shell ls -1 | grep "\.c")
 
-OBJET = $(SRC:%.c=obj/%.o)
+OBJET = $(SRC:%.c=%.o)
 
-all: prepare compile_lib $(NAME)
-
-prepare:
-		@/bin/mkdir -p obj/
+all: $(NAME)
 
 norm:
 		@norminette $(SRC) $(HEADER)
@@ -32,15 +29,8 @@ $(NAME): $(OBJET)
 		@ar rc $@ $(OBJET)
 		@ranlib $(NAME)
 
-compile_lib:
-		@echo "\033[31mCompiling Libft Please wait ...\033[39m"
-
-obj/%.o: %.c
-		@gcc $(FLAGS) -I includes/ -o $@ -c $<
-		@printf "\033[35m. \033[39m"
-
 clean:
-		@/bin/rm -rf obj/
+		@/bin/rm -f *.o
 
 fclean: clean
 		@/bin/rm -f $(NAME)

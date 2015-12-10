@@ -11,9 +11,51 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_itoa(int n)
+static int  ft_len(n)
 {
-	n = 0;
-	return (NULL);
+  int i;
+
+  i = 1;
+  while (n / 10 != 0)
+  {
+    n /= 10;
+    i++;
+  }
+  return (i);
+}
+
+static int  ft_issign(int n)
+{
+  return (n < 0);
+}
+
+char        *ft_itoa(int n)
+{
+  size_t  i;
+  size_t  sign;
+  char    *new;
+
+  sign = ft_issign(n);
+  i = ft_len(n);
+  new = ft_strnew(sign + i + 1);
+  if (n <= -2147483648)
+    return (ft_strcpy(new, "-2147483648"));
+  if (ft_issign(n))
+    n *= -1;
+  if (new)
+  {
+    if (n == 0)
+      new[0] = '0';
+    while (n)
+    {
+      new[--i + sign] = (n % 10) + 48;
+      n /= 10;
+    }
+    if (sign)
+      new[0] = '-';
+  }
+  free(new);
+  return(new);
 }
