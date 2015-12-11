@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 18:15:01 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/03 17:18:58 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/11 17:42:02 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ void	ft_putnbr(int n)
 		n = -2147483648;
 		ft_putstr("-2147483648");
 	}
-  else
-  {
-	  if (n < 0)
-	  {
-		  ft_putchar('-');
-		  n *= -1;
-	  }
-	  if (n >= 10)
-		  ft_putnbr(n / 10);
-	  ft_putchar((char)(48 + (n % 10)));
-  }
+	else
+	{
+		if (n < 0)
+		{
+			ft_putchar('-');
+			n *= -1;
+		}
+		if (n >= 10)
+			ft_putnbr(n / 10);
+		ft_putchar((char)(48 + (n % 10)));
+	}
 }

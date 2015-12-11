@@ -5,57 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/03 17:41:48 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/03 17:43:13 by wgulista         ###   ########.fr       */
+/*   Created: 2015/12/11 18:04:19 by wgulista          #+#    #+#             */
+/*   Updated: 2015/12/11 18:15:44 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static int  ft_len(n)
+int		ft_len(int n)
 {
-  int i;
+	int	i;
 
-  i = 1;
-  while (n / 10 != 0)
-  {
-    n /= 10;
-    i++;
-  }
-  return (i);
+	i = 1;
+	while (n / 10 != 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
 }
 
-static int  ft_issign(int n)
+int		ft_issign(int n)
 {
-  return (n < 0);
+	return (n < 0);
 }
 
-char        *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-  size_t  i;
-  size_t  sign;
-  char    *new;
+	size_t	i;
+	size_t	sign;
+	char	*new;
 
-  sign = ft_issign(n);
-  i = ft_len(n);
-  new = ft_strnew(sign + i + 1);
-  if (n <= -2147483648)
-    return (ft_strcpy(new, "-2147483648"));
-  if (ft_issign(n))
-    n *= -1;
-  if (new)
-  {
-    if (n == 0)
-      new[0] = '0';
-    while (n)
-    {
-      new[--i + sign] = (n % 10) + 48;
-      n /= 10;
-    }
-    if (sign)
-      new[0] = '-';
-  }
-  free(new);
-  return(new);
+	sign = ft_issign(n);
+	i = ft_len(n);
+	new = ft_strnew(sign + i + 1);
+	if (n <= -2147483648)
+		return (ft_strcpy(new, "-2147483648"));
+	if (sign)
+		n *= -1;
+	if (new)
+	{
+		if (n == 0)
+			new[0] = '0';
+		while (n)
+		{
+			new[--i + sign] = (n % 10) + 48;
+			n /= 10;
+		}
+		if (sign)
+			new[0] = '-';
+	}
+	free(new);
+	return (new);
 }
