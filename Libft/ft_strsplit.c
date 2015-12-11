@@ -40,46 +40,80 @@ int	ft_count_word(char const *s, char c)
 	return (count);
 }
 
+char  *ft_strtrimchar(char const *str, char c)
+{
+  size_t  i;
+  char    *new;
+
+  i = 0;
+  if (str == NULL)
+    return (NULL);
+  while (str[i] == c)
+    i++;
+  while (str[i])
+    i++;
+  while (i-- > 0)
+    ;
+  new = ft_strsub(str, 0, i + 1);
+  return (new ? new : NULL);
+}
+
+int   ft_ischarexist(char const *s, char c)
+{
+  size_t  i;
+
+  while (s)
+  {
+    if (s[i] == c)
+      return (1);
+    else
+      return (0);
+    i++;
+  }
+  return (0);
+}
+
+char  *ft_create_word(char const *s, char c, size_t j, size_t len)
+{
+  char  *new;
+
+  s = ft_strtrimchar(s, c);
+  while (s[j] != c)
+    len++;
+  while (s[j])
+  {
+    if (s[j] != c)
+    {
+      new = ft_strsub(s, j, len);
+    }
+    j++;
+  }
+  return (new);
+}
+
 char	**ft_strsplit(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
-	size_t	k;
+  size_t  len;
 	int	nbr_word;
 	char	**new;
 
 	i = 0;
-	nbr_word = ft_count_word(s, c);
-	if (!s || !(new = (char **)malloc(sizeof(char *) * nbr_word)))
-		return (NULL);
-	if(s)
-	{
-		while (i < nbr_word)
-		{
-			k = j;
-			while (s[j])
-			{
-				new[i] = ft_strsub(s, j, k);
-				j++;
-			}
-			j = 0;
-			i++;
-		}
-	}
-	return (new);
+	if (*s != '\0')
+  {
+    nbr_word = ft_count_word(s, c);
+    if ((new = (char **)malloc(sizeof(char *) * nbr_word)))
+    {
+      j = 0;
+      while (i < nbr_word)
+      {
+        new[i] = ft_create_word(s, c, j, len);
+        i++;
+      }
+    }
+  }
+  else
+    new[0] = NULL;
+  return (new);
 }
-/*
-int	main(void)
-{
-	const	char	buf[] = "*salut**les**amis**";
-	char		**temp;
-	size_t		i = 0;
-
-	temp = ft_strsplit(buf, '*');
-	while (temp[i])
-	{
-		printf("%s\n",temp[i]);
-		i++;
-	}
-	return (0);
-}*/

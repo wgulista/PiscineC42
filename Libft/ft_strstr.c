@@ -15,22 +15,17 @@
 char	*ft_strstr(const char *s1, const char *s2)
 {
   size_t  i;
-  size_t  j;
 
-  i = 0;
-  j = 0;
-  if (s2[0] == '\0'|| s1[0] == '\0')
+  if (!s1 || !s2)
     return (NULL);
-  while (s1[i])
+  if (*s2 == '\0')
+    return ((char *)s1);
+  i = ft_strlen(s2);
+  while (*s1)
   {
-    j = i;
-    while (s1[i] == s2[j])
-    {
-      j++;
-      if (s2[j] == '\0')
-        return ((char *)&s1[i]);
-    }
-    i++;
+    if (ft_strncmp(s1, s2, i) == 0)
+      return ((char *)s1);
+    s1++;
   }
   return (NULL);
 }
