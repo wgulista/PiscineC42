@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 13:27:36 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/11 20:04:16 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/18 15:51:53 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 size_t		ft_count_word(char const *s, char c)
 {
-	size_t	isword;
 	size_t	count;
+	size_t	word;
 
-	isword = 0;
 	count = 0;
+	word = 0;
 	while (*s)
 	{
 		if (*s == c)
-			isword = 0;
-		else if (isword == 0)
+			word = 0;
+		else if (word == 0)
 		{
-			isword = 1;
+			word = 1;
 			count++;
 		}
 		s++;
@@ -33,7 +33,7 @@ size_t		ft_count_word(char const *s, char c)
 	return (count);
 }
 
-size_t	ft_word_len(char const *s, char c)
+size_t		ft_word_len(char const *s, char c)
 {
 	size_t	len;
 
@@ -50,7 +50,7 @@ char		**ft_strsplit(char const *s, char c)
 {
 	size_t	i;
 	size_t	nbr_word;
-  char    **new;
+	char	**new;
 
 	if (s)
 	{
@@ -61,14 +61,14 @@ char		**ft_strsplit(char const *s, char c)
 		while (i < nbr_word)
 		{
 			while (*s == c && *s != '\0')
- 			   s++;
+				s++;
 			if ((new[i] = ft_strsub(s, 0, ft_word_len(s, c))))
-        s += ft_word_len(s, c);
-      i++;
+				s += ft_word_len(s, c);
+			i++;
 		}
-    new[i] = NULL;
+		new[i] = NULL;
 	}
-  else
-    new[i] = NULL;
+	else
+		new[i] = NULL;
 	return (new);
 }

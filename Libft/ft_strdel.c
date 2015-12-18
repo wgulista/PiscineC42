@@ -6,7 +6,7 @@
 /*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 16:40:08 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/03 17:22:21 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/18 15:59:57 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_strdel(char **ap)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (ap[i] != NULL)
