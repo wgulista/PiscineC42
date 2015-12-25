@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_len(int n)
+static int		ft_len(int n)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ int		ft_len(int n)
 	return (i);
 }
 
-int		ft_issign(int n)
+static int		ft_issign(int n)
 {
 	return (n < 0);
 }

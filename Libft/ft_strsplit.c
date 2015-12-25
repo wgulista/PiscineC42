@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t		ft_count_word(char const *s, char c)
+static size_t		ft_count_word(char const *s, char c)
 {
 	size_t	count;
 	size_t	word;
@@ -33,7 +33,7 @@ size_t		ft_count_word(char const *s, char c)
 	return (count);
 }
 
-size_t		ft_word_len(char const *s, char c)
+static size_t		ft_word_len(char const *s, char c)
 {
 	size_t	len;
 
