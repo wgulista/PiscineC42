@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:48:53 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 18:29:47 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/29 15:21:20 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
 
+	if (s == NULL || *s == '\0')
+		return (NULL);
 	i = ft_strlen(s);
 	if (s)
 	{
@@ -25,6 +27,7 @@ char	*ft_strrchr(const char *s, int c)
 				return ((char *)&s[i]);
 			i--;
 		}
+		return ((char *)s);
 	}
 	return (NULL);
 }

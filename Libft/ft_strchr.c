@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:23:50 by wgulista          #+#    #+#             */
-/*   Updated: 2015/11/26 18:32:33 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/29 15:34:55 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
-	if (s == NULL)
+	if (s == NULL || *s == '\0')
 		return (NULL);
-	while (s[i] != '\0' && s[i] != (char)c)
+	while (s[i] != (char)c)
 		i++;
 	if (s[i] == (char)c)
 		return ((char *)&s[i]);

@@ -6,7 +6,7 @@
 /*   By: wgulista <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 18:04:19 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/11 18:15:44 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/29 14:20:12 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_itoa(int n)
 
 	sign = ft_issign(n);
 	i = ft_len(n);
-	new = ft_strnew(sign + i + 1);
+	new = ft_strnew(sign + i);
 	if (n <= -2147483648)
 		return (ft_strcpy(new, "-2147483648"));
 	if (sign)
@@ -55,6 +55,5 @@ char	*ft_itoa(int n)
 		if (sign)
 			new[0] = '-';
 	}
-	free(new);
 	return (new);
 }
