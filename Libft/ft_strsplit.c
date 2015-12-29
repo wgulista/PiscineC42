@@ -15,20 +15,20 @@
 static size_t		ft_count_word(char const *s, char c)
 {
 	size_t	count;
-	size_t	word;
+  size_t  word;
 
 	count = 0;
-	word = 0;
-	while (*s)
+  word = 0;
+	while (*s != '\0')
 	{
-		if (*s == c)
-			word = 0;
-		else if (word == 0)
-		{
-			word = 1;
-			count++;
-		}
-		s++;
+    if (word == 0 && *s != c)
+    {
+      word = 1;
+      count++;
+    }
+    if (word == 1 && *s == c)
+      word = 0;
+    s++;
 	}
 	return (count);
 }

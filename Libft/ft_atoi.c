@@ -17,7 +17,7 @@ static int		ft_issign(char c)
 	return (c == '+' || c == '-');
 }
 
-char			*ft_test_sign(const char *s, int *i, int *ispositive)
+static char			*ft_test_sign(const char *s, int *i, int *ispositive)
 {
 	char	*new;
 
