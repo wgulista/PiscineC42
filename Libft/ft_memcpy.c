@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 16:21:26 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/29 14:07:04 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/30 14:52:21 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ void	*ft_memcpy(void *s1, const void *s2, size_t n)
 		dst[i] = src[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	return ((void *)dst);
 }
