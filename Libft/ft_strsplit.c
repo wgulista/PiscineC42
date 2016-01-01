@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 13:27:36 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/18 15:51:53 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/31 13:39:03 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 static size_t		ft_count_word(char const *s, char c)
 {
 	size_t	count;
-  size_t  word;
+	size_t	word;
 
 	count = 0;
-  word = 0;
+	word = 0;
 	while (*s != '\0')
 	{
-    if (word == 0 && *s != c)
-    {
-      word = 1;
-      count++;
-    }
-    if (word == 1 && *s == c)
-      word = 0;
-    s++;
+		if (word == 0 && *s != c)
+		{
+			word = 1;
+			count++;
+		}
+		if (word == 1 && *s == c)
+			word = 0;
+		s++;
 	}
 	return (count);
 }
@@ -46,7 +46,7 @@ static size_t		ft_word_len(char const *s, char c)
 	return (len);
 }
 
-char		**ft_strsplit(char const *s, char c)
+char				**ft_strsplit(char const *s, char c)
 {
 	size_t	i;
 	size_t	nbr_word;

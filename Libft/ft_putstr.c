@@ -6,14 +6,14 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 17:47:01 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/29 14:22:06 by wgulista         ###   ########.fr       */
+/*   Updated: 2016/01/01 17:19:57 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(const char *s)
+void	ft_putstr(char const *s)
 {
-	if (s != NULL)
+	if (s)
 		write(1, s, ft_strlen(s));
 }

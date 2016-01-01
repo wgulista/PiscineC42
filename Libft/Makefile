@@ -6,9 +6,11 @@
 #    By: wgulista <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 17:35:14 by wgulista          #+#    #+#              #
-#    Updated: 2015/12/03 18:15:32 by wgulista         ###   ########.fr        #
+#    Updated: 2015/12/31 14:15:31 by wgulista         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+.PHONY: all $(NAME) norm clean fclean re
 
 NAME = libft.a
 

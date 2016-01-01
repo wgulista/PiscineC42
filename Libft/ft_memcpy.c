@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 16:21:26 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/30 15:19:42 by wgulista         ###   ########.fr       */
+/*   Updated: 2016/01/01 16:46:04 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ void	*ft_memcpy(void *s1, const void *s2, size_t n)
 	unsigned char	*dst;
 	unsigned char	*src;
 
-	if (s1 == NULL && s2 == NULL)
-		return (NULL);
 	dst = (unsigned char *)s1;
 	src = (unsigned char *)s2;
-	i= 0;
+	i = 0;
 	while (i < n)
 	{
 		dst[i] = src[i];

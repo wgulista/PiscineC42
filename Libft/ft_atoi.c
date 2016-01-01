@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:21:24 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/11 17:19:04 by wgulista         ###   ########.fr       */
+/*   Updated: 2015/12/31 13:44:11 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int		ft_issign(char c)
 	return (c == '+' || c == '-');
 }
 
-static char			*ft_test_sign(const char *s, int *i, int *ispositive)
+static char		*ft_test_sign(const char *s, int *i, int *ispositive)
 {
 	char	*new;
 
