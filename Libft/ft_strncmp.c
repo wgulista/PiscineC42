@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:31:11 by wgulista          #+#    #+#             */
-/*   Updated: 2016/01/01 18:19:14 by wgulista         ###   ########.fr       */
+/*   Updated: 2016/01/01 19:04:55 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (*s1 && *s2 && *s1 == *s2 && n-- > 0)
+	size_t	i;
+
+	i = 0;
+	if (i < n)
 	{
-		s1++;
-		s2++;
+		while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
+			i++;
+		if ((unsigned char)s1[i] > (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		return ((unsigned char)s2[i] - (unsigned char)s1[i]);
 	}
-	return ((unsigned char *)s1 - (unsigned char *)s2);
+	return (0);
 }
