@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 14:47:56 by wgulista          #+#    #+#             */
-/*   Updated: 2016/01/01 17:37:50 by wgulista         ###   ########.fr       */
+/*   Updated: 2016/01/01 18:08:21 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ char	*ft_strstr(const char *s1, const char *s2)
 {
 	size_t	i;
 
-	if ((s1 == NULL && *s2 != '\0') || (*s1 != '\0' && s2 == NULL))
-		return (NULL);
 	if (*s2 == '\0')
 		return ((char *)s1);
 	i = ft_strlen(s2);
