@@ -52,23 +52,19 @@ char				**ft_strsplit(char const *s, char c)
 	size_t	nbr_word;
 	char	**new;
 
-	if (s)
+  i = 0;
+
+	nbr_word = ft_count_word(s, c);
+	if (!(new = (char **)malloc(sizeof(char *) * (nbr_word + 1))))
+		return (NULL);
+	while (i < nbr_word)
 	{
-		nbr_word = ft_count_word(s, c);
-		if (!(new = (char **)malloc(sizeof(char *) * nbr_word + 1)))
-			return (NULL);
-		i = 0;
-		while (i < nbr_word)
-		{
-			while (*s == c && *s != '\0')
-				s++;
-			if ((new[i] = ft_strsub(s, 0, ft_word_len(s, c))))
-				s += ft_word_len(s, c);
-			i++;
-		}
-		new[i] = NULL;
+		while (*s == c && *s != '\0')
+			s++;
+		if ((new[i] = ft_strsub(s, 0, ft_word_len(s, c))))
+			s += ft_word_len(s, c);
+		i++;
 	}
-	else
-		new[i] = NULL;
+	new[i] = NULL;
 	return (new);
 }

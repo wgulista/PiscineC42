@@ -16,13 +16,9 @@ void	*ft_memalloc(size_t size)
 {
 	void	*new;
 
-	new = (unsigned char *)malloc(size);
-	if (new != NULL)
-		ft_memset(new, 0, size);
-	else
-	{
-		free(new);
-		new = NULL;
-	}
+  new = (unsigned char *)malloc(sizeof(unsigned char) * size);
+  if (!new)
+    return (NULL);
+  ft_memset(new, 0, size);
 	return ((void *)new);
 }

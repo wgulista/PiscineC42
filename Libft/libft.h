@@ -22,6 +22,9 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int         ft_atoi(const char *str);
+char        *ft_itoa(int n);
+
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
@@ -76,9 +79,6 @@ void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr(const char *s);
 void				ft_putstr_fd(const char *s, int fd);
-
-int					ft_atoi(const char *str);
-char				*ft_itoa(int n);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
