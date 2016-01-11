@@ -53,17 +53,18 @@ char				**ft_strsplit(char const *s, char c)
 	char	**new;
 
   i = 0;
-
+  if (!s)
+    return (NULL);
 	nbr_word = ft_count_word(s, c);
 	if (!(new = (char **)malloc(sizeof(char *) * (nbr_word + 1))))
-		return (NULL);
+	  return (NULL);
 	while (i < nbr_word)
 	{
-		while (*s == c && *s != '\0')
-			s++;
+	  while (*s == c && *s != '\0')
+		  s++;
 		if ((new[i] = ft_strsub(s, 0, ft_word_len(s, c))))
-			s += ft_word_len(s, c);
-		i++;
+		  s += ft_word_len(s, c);
+	  i++;
 	}
 	new[i] = NULL;
 	return (new);

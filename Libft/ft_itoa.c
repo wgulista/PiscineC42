@@ -38,7 +38,7 @@ char			*ft_itoa(int n)
 
 	sign = ft_issign(n);
 	i = ft_len(n);
-	new = ft_strnew(sign + i);
+	new = ft_strnew(i);
 	if (n <= -2147483648)
 		return (ft_strcpy(new, "-2147483648"));
 	if (sign)
