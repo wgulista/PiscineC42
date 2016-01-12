@@ -6,7 +6,7 @@
 /*   By: wgulista <wgulista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 13:27:36 by wgulista          #+#    #+#             */
-/*   Updated: 2015/12/31 13:39:03 by wgulista         ###   ########.fr       */
+/*   Updated: 2016/01/12 09:38:35 by wgulista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,17 @@ char				**ft_strsplit(char const *s, char c)
 	size_t	nbr_word;
 	char	**new;
 
-  i = 0;
-  if (!s)
-    return (NULL);
+	i = 0;
 	nbr_word = ft_count_word(s, c);
-	if (!(new = (char **)malloc(sizeof(char *) * (nbr_word + 1))))
-	  return (NULL);
+	if (!(new = (char **)malloc(sizeof(char *) * nbr_word + 1)))
+		return (NULL);
 	while (i < nbr_word)
 	{
-	  while (*s == c && *s != '\0')
-		  s++;
+		while (*s == c && *s != '\0')
+			s++;
 		if ((new[i] = ft_strsub(s, 0, ft_word_len(s, c))))
-		  s += ft_word_len(s, c);
-	  i++;
+			s += ft_word_len(s, c);
+		i++;
 	}
 	new[i] = NULL;
 	return (new);
