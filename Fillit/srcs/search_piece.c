@@ -17,7 +17,7 @@ int		search_i(char *piece)
 	if (i == 0 || i == 1 || i == 2 || i == 3)
 	{
 		if (piece[i + 5] == '#' && piece[i + 10] == '#' && piece[i + 15] == '#')
-			return (1);
+			return (0);
 		else if (i != 0)
 			return (-1);
 	}

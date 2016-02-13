@@ -1,59 +1,55 @@
 #include "../includes/fillit.h"
 
-int 	listlen(t_tetri *list)
+int 	listlen(t_tetri *tetri)
 {
 	int		i;
 
 	i = 0;
-	while (list)
+	while (tetri)
 	{
 		i++;
-		list = list->next;
+		tetri = tetri->next;
 	}
 	return (i);
 }
 
-t_tetri	*create_piece(char *content, char c, int rotation)
+void	delete_tetris(t_tetri **tetris)
+{
+	t_tetri 	*tetri;
+
+	tetri = *tetris;
+	if (tetri->next)
+		delete_tetris(&(tetri->next));
+	else
+		free(tetri);
+	tetri = NULL;
+}
+
+t_tetri	*create_piece(char content, int rotation)
 {
 	t_tetri		*new;
-	int			width;
-	int			height;
 
-	width = 0;
-	height = 0;
-	while (*content != '\0')
-	{
-		if (*content == '\n')
-			height++;
-		if (*content == '#' || *content == '.')
-			width++;
-		content++;
-	}
 	if (!(new = (t_tetri*)malloc(sizeof(t_tetri))))
 		return (NULL);
 	new->content = content;
-	new->c = c;
 	new->rotation = rotation;
-	new->x = width / 4;
-	new->y = height - 1;
-	new->x_start = 0;
-	new->y_start = 0;
+	new->next = NULL;
 	return (new);
 }
 
-int		add_elem(t_tetri **list, t_tetri *new)
+int		add_elem(t_tetri **tetris, t_tetri *new)
 {
 	t_tetri	*res;
 	int		i;
 
 	i = 0;
-	res = *list;
+	res = *tetris;
 	if (new == NULL)
 		return (0);
 	if (res == NULL)
 	{
-		new->c = 'A' + i;;
-		*list = new;
+		new->letter = 'A' + i;
+		*tetris = new;
 	}
 	else
 	{
@@ -63,7 +59,7 @@ int		add_elem(t_tetri **list, t_tetri *new)
 			i++;
 			res = res->next;
 		}
-		new->c = 'A' + i;;
+		new->letter = 'A' + i;
 		res->next = new;
 	}	
 	return (1);
@@ -76,7 +72,7 @@ t_tetri	*create_list(char *av)
 	int		fd;
 	char	*piece[2];
 	t_tetri	*new;
-
+	
 	F();
 	new = NULL;
 	if ((fd = open(av, O_RDONLY)) < 0)
@@ -91,7 +87,7 @@ t_tetri	*create_list(char *av)
 		piece[1] = "ijlostz";
 		if (i == 7)
 			return (NULL);
-		if (!add_elem(&new, create_piece(piece[0], piece[1][i], j)))
+		if (!add_elem(&new, create_piece(piece[1][i], j)))
 			return (NULL);
 	}
 	close(fd);

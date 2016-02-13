@@ -2,14 +2,14 @@
 
 void	init_tab(char **tab, int x, int y, char c)
 {
-	while (x < 5)
+	COORD();
+
+	i[0] = -1;
+	while (++i[0] < x)
 	{
-		while (y < 5)
-		{
-			tab[x][y] = c;
-			y++;
-		}
-		x++;
+		i[1] = -1;
+		while (++i[1] < y)
+			tab[i[0]][i[1]] = c;
 	}
 }
 
@@ -19,34 +19,49 @@ char	**ft_tabnew(int x, int y)
 	int 	i;
 	int 	j;
 
-	i = 0;
-	j = 0;
-	if (!(new = (char **)malloc(sizeof(char*) * (x * y + 1))))
+	i = -1;
+	j = -1;
+	if (!(new = (char **)malloc(sizeof(char*) * (x + 1))))
 		return (NULL);
-	while (i < x)
+	while (++i < x)
 	{
-		while (j < y)
-		{
-			new[i][x] = 0;
-			j++;
-		}
-		i++;
+		if (!(new[i] = (char*)malloc(sizeof(char) * (y))))
+			return (NULL);
+		while (++j < y)
+			new[i][j] = 0;
 	}
+	new[i] = NULL;
 	return (new);
 }
 
-int		full_tab(char **ca, int i)
+void	init_pos(char letter, char **tab, int len)
 {
-	int	j[2];
-	int	nb;
+	COORD();
 
-	j[0] = -1;
-	nb = 0;
-	while (++j[0] < i)
+	i[0] = -1;
+	while (++i[0] < len)
 	{
-		j[1] = -1;
-		while (++j[1] < i)
-			if (ca[j[0]][j[1]] == '.')
+		i[1] = -1;
+		while (++i[1] < len)
+		{
+			if (tab[i[0]][i[1]] == letter)
+				tab[i[0]][i[1]] = '.';
+		}
+	}
+}
+
+int		full_tab(char **tab, int len)
+{
+	int	nb;
+	COORD();
+
+	i[0] = -1;
+	nb = 0;
+	while (++i[0] < len)
+	{
+		i[1] = -1;
+		while (++i[1] < len)
+			if (tab[i[0]][i[1]] == '.')
 				nb++;
 	}
 	if (nb <= 3)

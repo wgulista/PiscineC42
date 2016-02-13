@@ -6,8 +6,12 @@ SRC_NAME = 	main.c 					\
 			error.c 				\
 			check_tetriminos.c 		\
 			list_tetri.c 			\
-			pos_piece.c 			\
 			tab.c 					\
+			pos_piece.c 			\
+			pos_piece2.c 			\
+			pos_piece3.c 			\
+			pos_piece4.c 			\
+			pos_piece5.c 			\
 			resolver.c 				\
 			print_tab.c 			\
 			search_piece.c 			\
