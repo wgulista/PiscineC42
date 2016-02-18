@@ -49,17 +49,17 @@ int		search_z(char *piece);
 int		search_s(char *piece);
 
 /* POS_PIECE.C */
-int		pos_i(t_tetri *piece, char **tab, int *i, int j);
-int		pos_o(t_tetri *piece, char **tab, int *i, int j);
+int		pos_i(t_tetri *piece, char **tab, int *i, int len);
+int		pos_o(t_tetri *piece, char **tab, int *i, int len);
 /* POS_PIECE2.C */
-int		pos_z(t_tetri *piece, char **tab, int *i, int j);
-int		pos_s(t_tetri *piece, char **tab, int *i, int j);
+int		pos_z(t_tetri *piece, char **tab, int *i, int len);
+int		pos_s(t_tetri *piece, char **tab, int *i, int len);
 /* POS_PIECE3.C */
-int		pos_t(t_tetri *piece, char **tab, int *i, int j);
+int		pos_t(t_tetri *piece, char **tab, int *i, int len);
 /* POS_PIECE4.C */
-int		pos_l(t_tetri *piece, char **tab, int *i, int j);
+int		pos_l(t_tetri *piece, char **tab, int *i, int len);
 /* POS_PIECE5.C */
-int		pos_j(t_tetri *piece, char **tab, int *i, int j);
+int		pos_j(t_tetri *piece, char **tab, int *i, int len);
 
 /* CHECK_TETRIMINOS.C */
 int		check_verif_piece(char *piece);

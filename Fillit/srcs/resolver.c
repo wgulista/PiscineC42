@@ -53,7 +53,6 @@ int 	recur_solver(t_tetri *tetris, char **tab)
 					if (tetris->content == char_piece[j[2]])
 						if (f[j[2]](tetris, tab, j, len))
 						{
-							ft_putnbr_endl((len - (j[1] + 3)), 1);
 							if ((j[3] = recur_solver(tetris->next, tab)) > 0)
 								return (1);
 							else if (j[3] == 0)
