@@ -1,33 +1,70 @@
 #include "get_next_line.h"
 
-char	*read_file(char	*file)
+static int        check_line(char *str)
 {
-	int		fd;
-	int		rd;
-	char	*buf;
+    int i;
 
-	buf = ft_memalloc(BUFF_SIZE + 1);
-	fd = open(file, O_RDONLY);
-	rd = read(fd, buf, BUFF_SIZE);
-	buf[rd] = '\0';
-	return (buf);
+    i = 0;
+    if (!str)
+        return (-1);
+    while (str[i] && str[i] != '\n')
+        i++;
+    if (str[i] != '\n')
+        return (-1);
+    else
+        return (i);
 }
 
-/*int		get_next_line(int const fd, char **line)
+static char        *ft_join(char **dest, char *src)
 {
-	static char	*str;
-	char		buf[BUFF_SIZE];
-	int			i;
-}*/
+    char *temp;
 
-int		main(int ac, char **av)
+    temp = NULL;
+    temp = ft_strjoin(*dest, src);
+    if (!temp)
+        return (NULL);
+    ft_strdel(dest);
+    return (temp);
+}
+
+char            *ft_fill(int chk, char **rest, char **line)
 {
-	char	*value;
+    char    *new_rest;
 
-	if (ac == 2)
-	{
-		value = read_file(av[1]);
-		printf("%s\n", value);
-	}
-	return (0);
+    new_rest = NULL;
+    if (!(*line = ft_strsub(*rest, 0, chk)))
+        return (NULL);
+    if (!(new_rest = ft_strsub(*rest, chk + 1, ft_strlen(*rest) - chk + 1)))
+        return (NULL);
+    ft_strdel(rest);
+    return (new_rest);
+}
+
+int                get_next_line(int fd, char **line)
+{
+    static char    *rest[256];
+    char        buff[BUFF_SIZE + 1];
+    int            rd;
+    int            chk;
+
+    if (!line || fd < 0)
+        return (-1);
+    rd = 0;
+    while ((chk = check_line(rest[fd])) == -1)
+    {
+        if ((rd = read (fd, buff, BUFF_SIZE)) == -1)
+            return (-1);
+        buff[rd] = '\0';
+        rest[fd] = ft_join(&rest[fd], buff);
+        if (!rest[fd])
+            return (-1);
+        ft_strclr(buff);
+        if (rd == 0)
+        {
+            *line = ft_join(&rest[fd], buff);
+            return (0);
+        }
+    }
+    rest[fd] = ft_fill(chk, &rest[fd], line);
+    return (1);
 }
