@@ -6,5 +6,10 @@ Libft : reprend les fonctions de la LIBC
 
 Fillit : Resolveur de tetris
 - prend en parametre un fichier comprenant des tetriminos valide ou invalide
-- renvoie le plus carre forme par les tetriminos
-- renvoie error si c'est invalide
+- renvoie le plus petit carre forme par les tetriminos
+- renvoie uen erreur si c'est invalide
+
+Get_next_line : 
+- lis une ligne dans un fichier
+
+
